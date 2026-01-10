@@ -1,16 +1,15 @@
 ---
 # You can also start simply with 'default'
-theme: seriph
+theme: zhozhoba
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
 # some information about your slides (markdown enabled)
-title: Welcome to Slidev
+title: intro to Virtual Reality
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
+  ## Intro to Virtual Reality
+  Presentation slides for UNCG interactivity Variable Topics
 
-  Learn more at [Sli.dev](https://sli.dev)
 # apply unocss classes to the current slide
 class: text-center
 # https://sli.dev/features/drawing
@@ -22,9 +21,9 @@ transition: slide-left
 mdc: true
 ---
 
-# Welcome to Slidev
+# Intro to Virtual Reality
 
-Presentation slides for developers
+an introduction to the history of virtual reality
 
 <div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
   Press Space for next page <carbon:arrow-right />
@@ -45,47 +44,6 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 ---
 transition: fade-out
----
-
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
-
----
-transition: slide-up
 level: 2
 ---
 
@@ -110,6 +68,40 @@ Hover on the bottom-left corner to see the navigation's controls panel, [learn m
   alt=""
 />
 <p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+
+---
+transition: slide-up
+---
+
+# What is Virtual Reality?
+
+Virtual Reality (VR) is a computer-generated environment with scenes and objects that appear to be real, making the user feel they are immersed in their surroundings.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wyOqOjSwdVs?si=QZ-BwzA781l2BXPe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<br>
+<br>
+
+<!--
+You can have `style` tag in markdown to override the style for the current page.
+Learn more: https://sli.dev/features/slide-scope-style
+-->
+
+<style>
+h1 {
+  background-color: #2B90B6;
+  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+<!--
+Here is another comment.
+-->
 
 ---
 layout: two-cols
