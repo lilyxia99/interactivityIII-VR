@@ -2,6 +2,10 @@
 
 To start the slide show:
 
+install latest node.js `nvm install --lts`
+
+and then install `npm install -g pnpm@latest-10`
+
 - `npm install`
 - `npm run dev`
 - visit http://localhost:3030
@@ -15,3 +19,4 @@ first need to run `pnpm install`
 ```ts {all|1|7|7-8|10|all} twoslash the {} here is the click highlight
 
 <arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="334" color="#953" width="2" arrowSize="1" />
+

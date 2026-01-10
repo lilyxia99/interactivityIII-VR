@@ -1,10 +1,6 @@
 ---
 # You can also start simply with 'default'
 theme: zhozhoba
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
 title: intro to Virtual Reality
 info: |
   ## Intro to Virtual Reality
@@ -125,16 +121,24 @@ layout: two-cols
 
 It is important to distinguish VR from its "cousins":
 
-Virtual Reality (VR): 100% digital. You cannot see the real world.
+Virtual Reality (VR) <span class="grey"> 100% digital. You cannot see the real world.</span>
 
-Augmented Reality (AR): Digital overlays on the real world (e.g., Pokémon GO or IKEA furniture app).
+Augmented Reality (AR) <span class="grey">Digital overlays on the real world (e.g., Pokémon GO or the "view in your house" in Amazon app).</span>
 
-Mixed Reality (MR): Digital objects that interact with the physical environment.
+Mixed Reality (MR)<span class="grey"> Digital objects that interact with the physical environment.</span>
 
 ::right::
 <div class="flex flex-col justify-center h-full">
 <img src="https://www.banuba.com/hubfs/img-Blog-Hero-What%20is%20AR.jpg" class="h-60 mx-auto">
 </div>
+
+<style>
+
+.grey {
+  color:#85807f;
+  font-style:normal;
+}
+  </style>
 
 ---
 level: 2
@@ -157,22 +161,34 @@ VR is moving far beyond just "gaming." It is transforming professional industrie
 
 ---
 
+
 # Challenges and Limitations
-Despite the excitement, VR still faces hurdles:
+Despite the excitement, VR still faces hurdles, and 
 
-- Motion Sickness: The "vergence-accommodation" conflict where your eyes and inner ear disagree.
+- Motion Sickness
+>Some of you might experience that during the class...it's ok if you really have that you don't need to stay in VR the whole time!
 
-- Cost: High-end VR still requires powerful computers and expensive hardware.
+- Cost
+>High-end VR still requires powerful computers and expensive hardware. For example the crazy expensive (*and no one uses*) Apple Vision Pro...
 
-- Social Isolation: The "goggle effect" can disconnect users from the people physically around them.
+- Accessibility
+>VR's design is hard for people with diffrent body abilities to put on. For example a person who can't use their arms in a mobile way would find it difficult to put on a headset by themselves
 
-- Form Factor: Headsets need to become lighter, smaller, and more comfortable for long-term use.
+<style>
 
-
+blockquote p {
+  color:#85807f;
+  font-style:normal;
+}
+  </style>
 
 ---
-class: px-20
----
 
-# Themes
+# 
+
+---
+# Set up Unreal Engine
+We will be using Unreal Engine to prototype and test out projects that we work on
+
+let's set up the VR environment together!
 
