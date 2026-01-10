@@ -70,8 +70,25 @@ Hover on the bottom-left corner to see the navigation's controls panel, [learn m
 <p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
 
 ---
+layout: two-cols
+layoutClass: gap-16
+---
+
+# Table of contents
+
+
+```html
+<Toc minDepth="1" maxDepth="1" />
+```
+
+::right::
+
+<Toc text-sm minDepth="1" maxDepth="2" />
+
+---
 transition: slide-up
 ---
+
 
 # What is Virtual Reality?
 
@@ -103,24 +120,6 @@ h1 {
 Here is another comment.
 -->
 
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc text-sm minDepth="1" maxDepth="2" />
 
 ---
 layout: image-right
