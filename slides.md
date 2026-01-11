@@ -40,7 +40,6 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 ---
 transition: fade-out
-level: 2
 ---
 
 # Navigation of this slide
@@ -244,10 +243,18 @@ layout: two-cols
 ![Google Earth VR](https://evolvevr.ca/wp-content/uploads/2018/08/GOOGLEEARTH.png)
 
 ---
+layout: fact
+---
+
+# Set up
+
+---
+level: 2
+---
 
 # Set up your accounts
 
-1. go to [Steam](https://store.steampowered.com/app/3798230/Idol_Party_2__Love_Vibe/?gad_source=1&gad_campaignid=23283281746&gbraid=0AAAABB49gyIj9AoDtvwHZHl3FUidGq-WH&gclid=CjwKCAiAjojLBhAlEiwAcjhrDnNXqU1DNX9rll2AocqD6XG1KDPwxF1lajL0-dfPD9eGP6oquCiIThoC2doQAvD_BwE) and [Meta](https://auth.meta.com/) and register your account
+1. go to [Steam](https://store.steampowered.com/app/3798230/Idol_Party_2__Love_Vibe/?gad_source=1&gad_campaignid=23283281746&gbraid=0AAAABB49gyIj9AoDtvwHZHl3FUidGq-WH&gclid=CjwKCAiAjojLBhAlEiwAcjhrDnNXqU1DNX9rll2AocqD6XG1KDPwxF1lajL0-dfPD9eGP6oquCiIThoC2doQAvD_BwE) and [Meta](https://auth.meta.com/) and [Unreal Engine](https://www.unrealengine.com/account/personal) register your account
 2. log in your meta account through <span class="red">Meta Horizon Link</span>, login to <span class="red">Steam</span>
 3. Download <span class="red">Oculus First contact</span> from Meta Horizon Link, try it!
 
