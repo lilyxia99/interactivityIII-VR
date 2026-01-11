@@ -25,14 +25,6 @@ an introduction to the history of virtual reality
   Press Space for next page <carbon:arrow-right />
 </div>
 
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
-  </a>
-</div>
 
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
@@ -114,6 +106,7 @@ Here is another comment.
 
 ---
 layout: two-cols
+level: 2
 ---
 
 # The "Reality" Spectrum
@@ -159,7 +152,8 @@ VR is moving far beyond just "gaming." It is transforming professional industrie
 
 
 ---
-
+level: 2
+---
 
 # Challenges and Limitations
 Despite the excitement, VR still faces hurdles, and 
@@ -180,6 +174,12 @@ blockquote p {
   font-style:normal;
 }
   </style>
+
+---
+layout: fact
+---
+
+# Let's Play VR! 
 
 ---
 
@@ -277,14 +277,47 @@ image: https://cdn.wccftech.com/wp-content/uploads/2023/02/WCCFunrealengine59-14
 ---
 level: 2
 ---
+
 # Set up your unreal
 
 1. Open Epic Launcher (you would need to either sign up or log in)
 2. Unreal Engine -> Library -> 5.6.1 (Launch)
-3. After Open, Choose "Simulation Tab", choose "VR Template"
+3. After Open, Choose __"Simulation Tab"__, choose __"VR Template"__
+
+---
+level: 2
+---
+
+# How to navigate in Unreal
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6NWplw2o5Ic?si=SPKFCRUTYGWnK3CI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+level: 2
+---
+
+# Navigation Exercise
+
+1. go inside the room with the fire pit 
+2. try focus on the fire pit
+3. try to fly out to find the purple ball
+
+
+---
+layout: two-cols
+---
+# Install Android SDK
+
+on the top menu bar, go to Platforms -> Android -> Install SDK
+
+You might run into trouble...if it does, we will do the other way
+
+::right::
+
+![platform-android](/images/platform-android.png)
+
+
 
 ---
 
-# 
 
-1. 
