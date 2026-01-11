@@ -3,8 +3,11 @@
 To start the slide show:
 
 install latest node.js `nvm install --lts`
-
 and then install `npm install -g pnpm@latest-10`
+
+first need to run `pnpm install`
+
+
 
 - `npm install`
 - `npm run dev`
@@ -14,7 +17,7 @@ Edit the [slides.md](./slides.md) to see the changes.
 
 Learn more about Slidev on [documentations](https://sli.dev/).
 
-first need to run `pnpm install`
+
 
 ```ts {all|1|7|7-8|10|all} twoslash the {} here is the click highlight
 
