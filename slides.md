@@ -1,6 +1,6 @@
 ---
 # You can also start simply with 'default'
-theme: zhozhoba
+theme: ./leilei-custom1
 title: intro to Virtual Reality
 info: |
   ## Intro to Virtual Reality
@@ -43,7 +43,7 @@ transition: fade-out
 level: 2
 ---
 
-# Navigation
+# Navigation of this slide
 
 Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
 
@@ -184,11 +184,100 @@ blockquote p {
 
 ---
 
-# 
+# Set up your headset
+
+1. Divide into groups with the 5 headsets
+
+2. put on headset, adjust your headset tightness
+
+3. Adjust the lens distence (wheel located on the left side of the headset)
+
+4. Adjust the Depth(Use the eye-relief buttons on the side of the facial interface)
+
+5. set your boundary (follow prompt in the headset)
 
 ---
-# Set up Unreal Engine
-We will be using Unreal Engine to prototype and test out projects that we work on
+layout: two-cols
+---
 
-let's set up the VR environment together!
+put your <span class="text-red-500">index finger</span> on the <span class="text-red-500">trigger button</span>
 
+your <span class="text-red-500">thumb</span> on the surface of the controller 
+
+your <span class="text-red-500">other fingers</span> on the <span class="text-red-500">grip button</span>
+
+::right::
+
+![the difference between trigger button and grip button](https://allvirtualreality.com/Image/TutorialsImg/20241231-TouchControllerQuest3/Right-Touch-Plus-Controller-01.jpg)
+
+
+---
+layout: two-cols
+---
+
+there is one flat button and two pop up button. For the flat one you would need to press it longer to initiate it. 
+
+![left controller](https://allvirtualreality.com/Image/TutorialsImg/20241231-TouchControllerQuest3/Left-Touch-Plus-Controller-02.jpg){size=50%}
+
+
+
+::right::
+
+![right controller](https://allvirtualreality.com/Image/TutorialsImg/20241231-TouchControllerQuest3/Right-Touch-Plus-Controller-02a.jpg){size=70%}
+
+---
+layout: two-cols
+---
+
+1. go to "Library"
+
+2. search "Open Brush" and "Google Earth"
+
+3. hit Get, if prompt question just hit "yes" or "allow"
+
+4. wait for it to download, and you can play with it!
+
+![Open Brush Logo](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1634870/capsule_616x353.jpg?t=1767286335)
+
+::right::
+
+![Google Earth VR](https://evolvevr.ca/wp-content/uploads/2018/08/GOOGLEEARTH.png)
+
+---
+
+# Set up your accounts
+
+1. go to [Steam](https://store.steampowered.com/app/3798230/Idol_Party_2__Love_Vibe/?gad_source=1&gad_campaignid=23283281746&gbraid=0AAAABB49gyIj9AoDtvwHZHl3FUidGq-WH&gclid=CjwKCAiAjojLBhAlEiwAcjhrDnNXqU1DNX9rll2AocqD6XG1KDPwxF1lajL0-dfPD9eGP6oquCiIThoC2doQAvD_BwE) and [Meta](https://auth.meta.com/) and register your account
+2. log in your meta account through <span class="red">Meta Horizon Link</span>, login to <span class="red">Steam</span>
+3. Download <span class="red">Oculus First contact</span> from Meta Horizon Link, try it!
+
+![Oculus first contact](https://howlongtobeat.com/games/86315_Oculus_First_Contact.jpg){size=60%}
+
+
+---
+layout: image-right
+image: https://cdn.wccftech.com/wp-content/uploads/2023/02/WCCFunrealengine59-1456x819.jpg
+---
+
+# Unreal Engine (UE)
+
+- Real-time Rendering -> virtual production, video games...
+- C++ and Blueprint coding system
+- ecosystem (built in templates)
+- photorealism
+
+
+---
+level: 2
+---
+# Set up your unreal
+
+1. Open Epic Launcher (you would need to either sign up or log in)
+2. Unreal Engine -> Library -> 5.6.1 (Launch)
+3. After Open, Choose "Simulation Tab", choose "VR Template"
+
+---
+
+# 
+
+1. 
