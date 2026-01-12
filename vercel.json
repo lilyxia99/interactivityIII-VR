@@ -1,15 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/intro/:path*",
-      "destination": "/intro/index.html"
-    },
-    {
-      "source": "/intro",
-      "destination": "/intro/index.html"
-    },
-    {
-      "source": "/((?!intro).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
