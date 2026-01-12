@@ -4,8 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build",
-    "dev": "slidev --open",
+    "build": "node build-simple.js",
+    "dev": "node dev-server.js",
+    "dev:single": "slidev",
     "export": "slidev export"
   },
   "dependencies": {

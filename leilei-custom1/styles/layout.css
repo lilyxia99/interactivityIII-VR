@@ -41,8 +41,10 @@ p {
 }
 
 h1 + p {
-    @apply -mt-2 opacity-50 mb-4;
+    @apply -mt-2 opacity-70 mb-4;
 }
+
+
 
 p + h2, ul + h2, table + h2 {
     @apply mt-10;
@@ -78,6 +80,7 @@ th {
 
 a {
     @apply border-current border-b border-dashed hover:(text-primary border-solid);
+    color:orangered
 }
 
 td, th {
@@ -241,4 +244,17 @@ h1 {
 
 .red{
   color:rgb(253, 104, 104)
+}
+
+strong {
+    color:rgb(253, 104, 104);
+    opacity: 100%;
+}
+
+.two-columns{
+    gap:1rem;
+}
+
+:is(.prose){
+    --un-prose-body: #4f92ff;
 }
