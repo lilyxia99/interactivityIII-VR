@@ -4,7 +4,39 @@ import path from 'path'
 
 console.log('🚀 Building Slidev presentations with history mode...\n')
 
-// ... [之前的辅助函数保持不变] ...
+// Helper functions
+function extractTitleFromSlideFile(filename) {
+  try {
+    const content = fs.readFileSync(filename, 'utf8')
+    const titleMatch = content.match(/^#\s+(.+)$/m)
+    if (titleMatch) {
+      return titleMatch[1].trim()
+    }
+    
+    // Try to find title in frontmatter
+    const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/)
+    if (frontmatterMatch) {
+      const titleInFrontmatter = frontmatterMatch[1].match(/title:\s*['"]?([^'"]+)['"]?/m)
+      if (titleInFrontmatter) {
+        return titleInFrontmatter[1].trim()
+      }
+    }
+    
+    return null
+  } catch (error) {
+    console.warn(`Could not extract title from ${filename}:`, error.message)
+    return null
+  }
+}
+
+function formatTopicToTitle(topic) {
+  if (!topic) return 'Main Presentation'
+  
+  return topic
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+}
 
 // 查找所有幻灯片文件
 const slideFiles = []
