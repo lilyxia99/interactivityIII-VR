@@ -105,7 +105,7 @@ for (const slide of slideFiles) {
     console.log(`   Base path: ${basePath}`)
     
     // 🔥 方法1：直接使用命令行参数（推荐）
-    const buildCmd = `npx slidev build ${slide.file} --out ${outputDir} --base ${basePath} --router-mode history`
+    const buildCmd = `npx @slidev/cli build ${slide.file} --out ${outputDir} --base ${basePath} --router-mode history`
     console.log(`   Command: ${buildCmd}`)
     
     execSync(buildCmd, {
@@ -147,7 +147,7 @@ for (const slide of slideFiles) {
     // 尝试备选方案：使用哈希模式
     console.log(`   Trying fallback with hash mode...`)
     try {
-      const fallbackCmd = `npx slidev build ${slide.file} --out ${outputDir} --base ${basePath} --router-mode hash`
+      const fallbackCmd = `npx @slidev/cli build ${slide.file} --out ${outputDir} --base ${basePath} --router-mode hash`
       execSync(fallbackCmd, { stdio: 'inherit', shell: true })
       console.log(`✅ ${slide.title} built with hash mode (fallback)`)
       builtPresentations.push(slide)
