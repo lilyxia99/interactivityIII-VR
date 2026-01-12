@@ -329,6 +329,52 @@ const testPage = `<!DOCTYPE html>
 fs.writeFileSync(path.join(distDir, 'test-routes.html'), testPage)
 console.log('✅ Test page created')
 
+// Generate vercel.json with dynamic rewrites
+console.log('\n🔧 Generating vercel.json...')
+const rewrites = []
+
+// Add rewrites for each built presentation
+builtPresentations.forEach(pres => {
+  if (pres.name !== 'main') {
+    rewrites.push({
+      "source": `/${pres.name}/:path*`,
+      "destination": `/${pres.name}/index.html`
+    })
+    rewrites.push({
+      "source": `/${pres.name}`,
+      "destination": `/${pres.name}/index.html`
+    })
+  }
+})
+
+// Add catch-all for main/navigation page
+const presentationNames = builtPresentations
+  .filter(pres => pres.name !== 'main')
+  .map(pres => pres.name)
+  .join('|')
+
+if (presentationNames) {
+  rewrites.push({
+    "source": `/((?!${presentationNames}).*)`,
+    "destination": "/index.html"
+  })
+} else {
+  rewrites.push({
+    "source": "/(.*)",
+    "destination": "/index.html"
+  })
+}
+
+const vercelConfig = {
+  "rewrites": rewrites,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "trailingSlash": false
+}
+
+fs.writeFileSync('vercel.json', JSON.stringify(vercelConfig, null, 2))
+console.log('✅ vercel.json generated with dynamic rewrites')
+
 console.log('\n🎉 Build completed!')
 console.log('\n🔧 Configuration summary:')
 console.log('   • Using --router-mode history for direct page access')
