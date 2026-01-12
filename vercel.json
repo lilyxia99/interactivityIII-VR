@@ -1,34 +1,15 @@
 {
   "rewrites": [
-    
-    {
-      "source": "/:pres/(assets|_nuxt|@slidev|node_modules)/:path*",
-      "destination": "/:pres/:path*"
-    },
-    
     {
       "source": "/:pres/:path*",
       "destination": "/:pres/index.html"
     },
-    
     {
       "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
-  "headers": [
-    {
-      "source": "/:pres/index.html",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
-        }
-      ]
-    }
-  ],
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "trailingSlash": false,
-  "cleanUrls": true
+  "trailingSlash": false
 }
