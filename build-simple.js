@@ -1,9 +1,9 @@
-// build-simple.js - 修复 ReferenceError: title is not defined
+// build-simple.js - 修复刷新问题和优化导航
 import { execSync } from 'child_process'
 import fs from 'fs'
 import path from 'path'
 
-console.log('🚀 构建 Slidev 演示文稿...\n')
+console.log('🚀 Building Slidev presentations...\n')
 
 // 辅助函数：从 Slidev 文件中提取标题
 function extractTitleFromSlideFile(filePath) {
@@ -24,14 +24,14 @@ function extractTitleFromSlideFile(filePath) {
       return h1Match[1].trim()
     }
   } catch (error) {
-    console.warn(`⚠️ 无法读取文件 ${filePath}:`, error.message)
+    console.warn(`⚠️  Cannot read file ${filePath}:`, error.message)
   }
   return null
 }
 
 // 辅助函数：格式化标题
 function formatTopicToTitle(topic) {
-  if (!topic) return '主演示文稿'
+  if (!topic) return 'Main Presentation'
   return topic
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
@@ -68,7 +68,7 @@ files.forEach(file => {
         prefix: prefix || ''
       })
       
-      console.log(`📝 发现: ${file} -> 标题: "${title}"`)
+      console.log(`📝 Found: ${file} -> Title: "${title}"`)
     }
   }
 })
@@ -76,15 +76,15 @@ files.forEach(file => {
 // 按数字顺序排序
 slideFiles.sort((a, b) => a.order - b.order)
 
-console.log(`\n📄 找到 ${slideFiles.length} 个幻灯片文件:`)
+console.log(`\n📄 Found ${slideFiles.length} slide files:`)
 slideFiles.forEach((s, i) => {
-  console.log(`  ${i + 1}. ${s.file} (标题: ${s.title})`)
+  console.log(`  ${i + 1}. ${s.file} (Title: ${s.title})`)
 })
 
 // 如果没有找到幻灯片文件，显示警告
 if (slideFiles.length === 0) {
-  console.log('⚠️  没有找到幻灯片文件！')
-  console.log('   支持的格式: slides.md, 01-slides.md, slides-topic.md, 01-slides-topic.md')
+  console.log('⚠️  No slide files found!')
+  console.log('   Supported formats: slides.md, 01-slides.md, slides-topic.md, 01-slides-topic.md')
   process.exit(0)
 }
 
@@ -99,7 +99,7 @@ const builtPresentations = []
 
 // 构建每个演示文稿
 for (const slide of slideFiles) {
-  console.log(`\n📦 构建: ${slide.title} (${slide.file})...`)
+  console.log(`\n📦 Building: ${slide.title} (${slide.file})...`)
   
   try {
     const outputDir = slide.name === 'main' ? distDir : path.join(distDir, slide.name)
@@ -110,22 +110,41 @@ for (const slide of slideFiles) {
       shell: true
     })
     
+    // 🔧 关键修复：为每个演示添加 _redirects 文件以支持 SPA 路由
+    console.log(`   Creating SPA redirects for ${slide.name}...`)
+    const redirectsContent = `/*  /index.html  200`
+    fs.writeFileSync(path.join(outputDir, '_redirects'), redirectsContent)
+    
+    // 🔧 额外添加 vercel.json 配置文件
+    const vercelConfig = {
+      "rewrites": [
+        {
+          "source": "/(.*)",
+          "destination": "/index.html"
+        }
+      ]
+    }
+    fs.writeFileSync(
+      path.join(outputDir, 'vercel.json'), 
+      JSON.stringify(vercelConfig, null, 2)
+    )
+    
     builtPresentations.push(slide)
-    console.log(`✅ ${slide.title} 构建完成`)
+    console.log(`✅ ${slide.title} built successfully`)
     
   } catch (error) {
-    console.error(`❌ ${slide.title} 构建失败:`, error.message)
+    console.error(`❌ ${slide.title} build failed:`, error.message)
   }
 }
 
 // 创建简洁导航页面
-console.log('\n🔗 创建导航页面...')
+console.log('\n🔗 Creating navigation page...')
 const navHtml = `<!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slidev 演示集</title>
+  <title>Interactivity II Slides</title>
   <style>
     body { 
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
@@ -232,16 +251,16 @@ const navHtml = `<!DOCTYPE html>
   <div class="cards">
     ${builtPresentations.map(pres => `
       <a href="${pres.name === 'main' ? './' : './' + pres.name + '/'}" class="card">
-        <h3 class="card-title">${pres.title || 'untitled'}</h3>
-        <p class="card-description">click to view complete${pres.title || '演示'} 幻灯片</p>
+        <h3 class="card-title">${pres.title || 'Untitled Presentation'}</h3>
+        <p class="card-description">Click to view complete ${pres.title || 'presentation'} slides</p>
         <span class="card-path">${pres.name === 'main' ? '/' : '/' + pres.name}</span>
       </a>
     `).join('')}
   </div>
   
   <div class="footer">
-    <p>using <a href="https://sli.dev" target="_blank">Slidev</a> built • deployed at Vercel</p>
-    <p style="margin-top: 5px;">built at: ${new Date().toLocaleString('zh-CN')}</p>
+    <p>Built with <a href="https://sli.dev" target="_blank">Slidev</a> • Deployed on Vercel</p>
+    <p style="margin-top: 5px;">Built at: ${new Date().toLocaleString('en-US')}</p>
   </div>
   
   <script>
@@ -250,7 +269,7 @@ const navHtml = `<!DOCTYPE html>
       const cards = document.querySelectorAll('.card');
       cards.forEach(card => {
         card.addEventListener('click', function(e) {
-          console.log('导航到:', this.getAttribute('href'));
+          console.log('Navigating to:', this.getAttribute('href'));
         });
       });
     });
@@ -259,23 +278,51 @@ const navHtml = `<!DOCTYPE html>
 </html>`
 
 fs.writeFileSync(path.join(distDir, 'index.html'), navHtml)
-console.log('✅ 导航页面创建完成')
+console.log('✅ Navigation page created')
+
+// 🔧 为根目录也添加 SPA 重定向规则（针对导航页面）
+const rootRedirects = `/*  /index.html  200`
+fs.writeFileSync(path.join(distDir, '_redirects'), rootRedirects)
+
+const rootVercelConfig = {
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "trailingSlash": false
+}
+fs.writeFileSync(
+  path.join(distDir, 'vercel.json'), 
+  JSON.stringify(rootVercelConfig, null, 2)
+)
+
+console.log('✅ SPA redirects configured for all presentations')
 
 // 显示构建信息
-console.log('\n🎉 构建完成！')
-console.log('\n📂 输出目录: dist/')
-console.log(`   ├── index.html        # 导航页`)
+console.log('\n🎉 Build completed!')
+console.log('\n📂 Output directory: dist/')
+console.log(`   ├── index.html        # Navigation page`)
+console.log(`   ├── vercel.json       # Vercel configuration`)
+console.log(`   ├── _redirects        # SPA redirects`)
 builtPresentations.forEach(pres => {
-  const dirName = pres.name === 'main' ? '(根目录)' : `${pres.name}/`
+  const dirName = pres.name === 'main' ? '(root)' : `${pres.name}/`
   console.log(`   ├── ${dirName.padEnd(15)} # ${pres.title}`)
 })
 
-console.log('\n🌐 访问路径:')
-console.log(`   导航页: /`)
+console.log('\n🌐 Access URLs:')
+console.log(`   Navigation: /`)
 builtPresentations.forEach(pres => {
   console.log(`   ${pres.title}: ${pres.name === 'main' ? '/' : '/' + pres.name}`)
+  console.log(`   Example slide page: ${pres.name === 'main' ? '/18' : '/' + pres.name + '/18'}`)
 })
 
-console.log('\n🚀 本地预览:')
+console.log('\n🚀 Local preview:')
 console.log(`   cd dist && npx serve`)
-console.log(`   浏览器打开: http://localhost:3000`)
+console.log(`   Open browser: http://localhost:3000`)
+
+console.log('\n🔧 SPA Routing Notes:')
+console.log('   - Added _redirects file to support client-side routing')
+console.log('   - Added vercel.json configuration for SPA support')
+console.log('   - Pages like /intro/18 should now refresh correctly')
