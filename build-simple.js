@@ -168,211 +168,96 @@ const navHtml = `<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactivity III - VR Slides</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-family: Georgia, 'Times New Roman', serif;
       line-height: 1.6;
       color: #333;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-    }
-    
-    .container {
-      max-width: 1200px;
+      background: #fff;
+      max-width: 800px;
       margin: 0 auto;
       padding: 2rem;
     }
     
-    .header {
-      text-align: center;
-      margin-bottom: 3rem;
-      color: white;
-    }
-    
-    .header h1 {
-      font-size: 3rem;
-      font-weight: 700;
+    h1 {
+      font-size: 2rem;
       margin-bottom: 0.5rem;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      color: #2c3e50;
     }
     
-    .header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      font-weight: 300;
+    .subtitle {
+      color: #7f8c8d;
+      margin-bottom: 2rem;
+      font-style: italic;
     }
     
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
+    .slides-list {
+      list-style: none;
+      padding: 0;
     }
     
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 2rem;
-      text-decoration: none;
-      color: inherit;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255,255,255,0.2);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #667eea, #764ba2);
-    }
-    
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    }
-    
-    .card-title {
-      font-size: 1.5rem;
-      font-weight: 600;
+    .slide-item {
       margin-bottom: 1rem;
-      color: #2d3748;
+      padding: 1rem;
+      border-left: 3px solid #3498db;
+      background: #f8f9fa;
     }
     
-    .card-description {
-      color: #718096;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-    }
-    
-    .card-path {
-      display: inline-block;
-      background: #f7fafc;
-      color: #4a5568;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      font-family: 'Monaco', 'Menlo', monospace;
-      font-size: 0.9rem;
-      border: 1px solid #e2e8f0;
-    }
-    
-    .quick-links {
-      margin-top: 1.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid #e2e8f0;
-    }
-    
-    .quick-links-title {
-      font-size: 0.9rem;
-      color: #718096;
+    .slide-title {
+      font-size: 1.2rem;
+      font-weight: 600;
       margin-bottom: 0.5rem;
-      font-weight: 500;
     }
     
-    .quick-link {
-      display: inline-block;
-      background: #667eea;
-      color: white;
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
+    .slide-title a {
+      color: #2c3e50;
       text-decoration: none;
-      font-size: 0.85rem;
-      margin-right: 0.5rem;
-      margin-bottom: 0.5rem;
-      transition: background 0.2s ease;
     }
     
-    .quick-link:hover {
-      background: #5a67d8;
+    .slide-title a:hover {
+      text-decoration: underline;
+    }
+    
+    .slide-path {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      color: #7f8c8d;
     }
     
     .footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #ecf0f1;
       text-align: center;
-      color: white;
-      opacity: 0.8;
+      color: #7f8c8d;
       font-size: 0.9rem;
     }
     
     .footer a {
-      color: white;
-      text-decoration: underline;
-    }
-    
-    .footer a:hover {
-      opacity: 0.8;
-    }
-    
-    .build-info {
-      margin-top: 0.5rem;
-      font-size: 0.8rem;
-      opacity: 0.7;
-    }
-    
-    @media (max-width: 768px) {
-      .container {
-        padding: 1rem;
-      }
-      
-      .header h1 {
-        font-size: 2rem;
-      }
-      
-      .cards {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-      
-      .card {
-        padding: 1.5rem;
-      }
+      color: #3498db;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>Interactivity III - VR</h1>
-      <p>Explore ${builtPresentations.length} interactive presentation${builtPresentations.length !== 1 ? 's' : ''}</p>
-    </div>
-    
-    <div class="cards">
-      ${builtPresentations.map(pres => {
-        const href = pres.name === 'main' ? './' : './' + pres.name + '/'
-        const displayPath = pres.name === 'main' ? '/' : '/' + pres.name + '/'
-        
-        return `
-        <div class="card" data-pres="${pres.name}">
-          <h3 class="card-title">${pres.title || 'Untitled Presentation'}</h3>
-          <p class="card-description">Interactive slides covering VR concepts and implementations</p>
-          <span class="card-path">${displayPath}</span>
-          
-          <div class="quick-links">
-            <div class="quick-links-title">Quick Access:</div>
-            <a href="${href}" class="quick-link">Start</a>
-            ${pres.name !== 'main' ? `
-              <a href="/${pres.name}/1" class="quick-link">Slide 1</a>
-              <a href="/${pres.name}/2" class="quick-link">Slide 2</a>
-              <a href="/${pres.name}/18" class="quick-link">Slide 18</a>
-            ` : ''}
-          </div>
+  <h1>Interactivity III - VR</h1>
+  <p class="subtitle">${builtPresentations.length} presentation${builtPresentations.length !== 1 ? 's' : ''} available</p>
+  
+  <ul class="slides-list">
+    ${builtPresentations.map(pres => {
+      const href = pres.name === 'main' ? './' : './' + pres.name + '/'
+      const displayPath = pres.name === 'main' ? '/' : '/' + pres.name + '/'
+      
+      return `
+      <li class="slide-item">
+        <div class="slide-title">
+          <a href="${href}">${pres.title || 'Untitled Presentation'}</a>
         </div>
-      `}).join('')}
-    </div>
-    
-    <div class="footer">
-      <p>Built with <a href="https://sli.dev" target="_blank">Slidev</a> • Deployed on <a href="https://vercel.com" target="_blank">Vercel</a></p>
-      <div class="build-info">Last updated: ${new Date().toLocaleString('en-US')}</div>
-    </div>
+        <div class="slide-path">${displayPath}</div>
+      </li>
+    `}).join('')}
+  </ul>
+  
+  <div class="footer">
+    <p>Built with <a href="https://sli.dev" target="_blank">Slidev</a> • Last updated: ${new Date().toLocaleString('en-US')}</p>
   </div>
 </body>
 </html>`
