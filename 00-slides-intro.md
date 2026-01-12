@@ -310,14 +310,12 @@ layout: two-cols
 
 on the top menu bar, go to Platforms -> Android -> Install SDK
 
-You might run into trouble...if it does, we will do the other way
+You might run into trouble...if it does, we will do [the other way](https://leileixia.notion.site/Set-up-SDK-2e6401da165b8003b20dc255f0a3922e?source=copy_link)
 
 ::right::
 
 ![platform-android](/images/platform-android.png)
 
 
-
----
 
 

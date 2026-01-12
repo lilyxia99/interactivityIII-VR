@@ -232,16 +232,16 @@ const navHtml = `<!DOCTYPE html>
   <div class="cards">
     ${builtPresentations.map(pres => `
       <a href="${pres.name === 'main' ? './' : './' + pres.name + '/'}" class="card">
-        <h3 class="card-title">${pres.title || '未命名演示'}</h3>
-        <p class="card-description">点击查看完整的 ${pres.title || '演示'} 幻灯片</p>
+        <h3 class="card-title">${pres.title || 'untitled'}</h3>
+        <p class="card-description">click to view complete${pres.title || '演示'} 幻灯片</p>
         <span class="card-path">${pres.name === 'main' ? '/' : '/' + pres.name}</span>
       </a>
     `).join('')}
   </div>
   
   <div class="footer">
-    <p>使用 <a href="https://sli.dev" target="_blank">Slidev</a> 构建 • 部署于 Vercel</p>
-    <p style="margin-top: 5px;">构建时间: ${new Date().toLocaleString('zh-CN')}</p>
+    <p>using <a href="https://sli.dev" target="_blank">Slidev</a> built • deployed at Vercel</p>
+    <p style="margin-top: 5px;">built at: ${new Date().toLocaleString('zh-CN')}</p>
   </div>
   
   <script>
