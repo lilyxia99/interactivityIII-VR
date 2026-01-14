@@ -41,14 +41,20 @@ slideFiles.forEach((file, index) => {
   console.log(`   文件: ${file}`)
   console.log(`   地址: http://localhost:${port}\n`)
   
-  const child = spawn('npx', ['slidev', file, '--port', port.toString()], {
-    stdio: 'inherit',
+  const child = spawn('npx', ['@slidev/cli', file, '--port', port.toString()], {
+    stdio: ['inherit', 'inherit', 'inherit'],
     shell: true,
-    detached: true
+    detached: false
   })
   
   child.on('error', (error) => {
     console.error(`❌ ${name} 启动失败:`, error.message)
+  })
+  
+  child.on('exit', (code, signal) => {
+    if (code !== 0) {
+      console.error(`❌ ${name} 异常退出，代码: ${code}, 信号: ${signal}`)
+    }
   })
   
   processes.push(child)
@@ -74,12 +80,29 @@ process.on('SIGINT', () => {
   console.log('\n🛑 正在停止所有进程...')
   processes.forEach(child => {
     try {
-      child.kill('SIGINT')
+      if (!child.killed) {
+        child.kill('SIGTERM')
+        setTimeout(() => {
+          if (!child.killed) {
+            child.kill('SIGKILL')
+          }
+        }, 2000)
+      }
     } catch (e) {
-      // 忽略错误
+      console.error('停止进程时出错:', e.message)
     }
   })
-  setTimeout(() => process.exit(0), 1000)
+  setTimeout(() => process.exit(0), 3000)
+})
+
+// 防止未捕获的异常导致程序崩溃
+process.on('uncaughtException', (error) => {
+  console.error('❌ 未捕获的异常:', error.message)
+  console.error(error.stack)
+})
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('❌ 未处理的 Promise 拒绝:', reason)
 })
 
 // 辅助函数：从文件名提取友好名称
