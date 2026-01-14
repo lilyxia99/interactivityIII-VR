@@ -42,11 +42,11 @@ cd "C:\Program Files\Epic Games\UE_5.6\Engine\Build\BatchFiles"
 ```shell
 .\RunUAT.bat Turnkey -Command=InstallSDK Platform=Android
 ```
-yesterday's issue was due to the small difference between powershell and command prompt, which are both commandline tools, but one can take a command without the ".\" and the other one doesn't quite in this case. The lesson is always have ".\" in the line, which stands for "in this folder"
+yesterday's mistake was due to the small difference between PowerShell and command prompt, which are both commandline tools, but one can take a command without the ".\" and the other one doesn't quite in this case. The lesson is always have ".\" in the line, which stands for "in this folder".
 
 ---
 
-4. You will see:
+4. You will see the following
 ```shell
 PS C:\Program Files\Epic Games\UE_5.6\Engine\Build\BatchFiles> .\RunUAT.bat Turnkey -Command=InstallSDK Platform=Android
 
@@ -69,3 +69,32 @@ Choose a type of Sdk to install:
   4) Device Software / Flash
 [Default: 1]
 ```
+type in "1" and hit enter
+
+---
+
+5. you will see
+```shell
+Choose a platform:
+  0) Cancel
+ [1] Android
+  2) All of the Above
+[Default: 1]
+```
+type in "1" and hit enter key
+
+6. then you will see:
+```shell
+Select an Sdk to install
+MinAllowed_Sdk=r25b, MaxAllowed_Sdk=r29, Current_Sdk=r27c, Allowed_AutoSdk=r27c, Current_AutoSdk=
+(Preferred: r27c
+  0) Cancel
+ [1] [Android] Android SDK r27c
+[Default: 1]
+```
+type in "1" and hit enter key
+---
+
+7. wait for the tools to process
+
+8.
