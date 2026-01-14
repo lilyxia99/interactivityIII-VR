@@ -1,7 +1,23 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/github/:path*",
+      "destination": "/github/index.html"
+    },
+    {
+      "source": "/github",
+      "destination": "/github/index.html"
+    },
+    {
+      "source": "/html/:path*",
+      "destination": "/html/index.html"
+    },
+    {
+      "source": "/html",
+      "destination": "/html/index.html"
+    },
+    {
+      "source": "/((?!github|html).*)",
       "destination": "/index.html"
     }
   ],
