@@ -48,7 +48,7 @@ files.forEach(file => {
   const isSlideFile = 
     file === 'slides.md' || 
     /^\d{2}-slides-.*\.md$/.test(file) ||
-    /^\d{2}--slides--.*\.md$/.test(file) ||
+    /^\d{2}--slides-.*\.md$/.test(file) ||
     file.startsWith('slides-') && file.endsWith('.md')
   
   console.log(`   Is slide file: ${isSlideFile}`)
@@ -68,9 +68,9 @@ files.forEach(file => {
       topic = match[2]
       name = topic
       console.log(`   Matched single-dash pattern: ${match[0]}`)
-    } else if (file.match(/^(\d{2})--slides--(.*)\.md$/)) {
-      // Pattern: 01--slides--SetUp.md
-      const match = file.match(/^(\d{2})--slides--(.*)\.md$/)
+    } else if (file.match(/^(\d{2})--slides-(.*)\.md$/)) {
+      // Pattern: 01--slides-SetUp.md
+      const match = file.match(/^(\d{2})--slides-(.*)\.md$/)
       order = parseInt(match[1])
       topic = match[2]
       name = topic
