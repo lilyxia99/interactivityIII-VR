@@ -9,7 +9,15 @@
       "destination": "/intro/index.html"
     },
     {
-      "source": "/((?!intro).*)",
+      "source": "/SetUp/:path*",
+      "destination": "/SetUp/index.html"
+    },
+    {
+      "source": "/SetUp",
+      "destination": "/SetUp/index.html"
+    },
+    {
+      "source": "/((?!intro|SetUp).*)",
       "destination": "/index.html"
     }
   ],
