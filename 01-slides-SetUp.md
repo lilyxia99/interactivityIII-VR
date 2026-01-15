@@ -192,7 +192,7 @@ layout: two-cols
 ---
 
 12. Under these forms, change each of them correspondingly
-![Platform - Android SDK setting](./images\setup\PlatformSDK.png)
+![Platform - Android SDK setting](./images/setup/PlatformSDK.png)
 change the `[yourUserName]` to your uncg username
 
 **a.** copy and paste
@@ -208,7 +208,7 @@ C:/Users/[yourUserName]/AppData/Local/Android/Sdk
 
 find the folder in there, right click -> copy as path
 
-![copy as path](.\images\setup\copyAsPath.png){size=60%}
+![copy as path](./images/setup/copyAsPath.png){size=60%}
 
 paste in b section
 
@@ -222,7 +222,7 @@ level: 2
 ---
 
 (continue) 
-![Platform - Android SDK setting](./images\setup\PlatformSDK.png)
+![Platform - Android SDK setting](./images/setup/PlatformSDK.png)
 change the `[yourUserName]` to your uncg username
 
 **d.** copy and paste
@@ -238,7 +238,7 @@ android-27
 
 14. Once set, go back to the main interface, on the top bar beside the play button, in Platforms → Device Manager, You should be able to see Quest 3 in the Android section. Update Device.
 
-![update Device](.\images\setup\installQ3.png){size=80%}
+![update Device](./images/setup/installQ3.png){size=80%}
 
 
 ---
