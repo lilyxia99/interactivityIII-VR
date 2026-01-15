@@ -23,6 +23,8 @@ and 3D scanning
 
 
 ---
+layout: two-cols
+---
 
 # Set up Casting
 
@@ -31,7 +33,10 @@ and 3D scanning
 
 2. log in to your meta account
 
-3. in your headset, hit 
+::right::
+
+3. click Start casting
+![Start Casting](./images/setup/casting.png){size=120%}
 
 
 ---
@@ -88,7 +93,7 @@ type in "1" and hit enter
 level: 2
 ---
 
-5. you will see
+then you will see
 ```shell
 Choose a platform:
   0) Cancel
@@ -98,7 +103,7 @@ Choose a platform:
 ```
 type in "1" and hit enter key
 
-6. then you will see:
+then you will see:
 ```shell
 Select an Sdk to install
 MinAllowed_Sdk=r25b, MaxAllowed_Sdk=r29, Current_Sdk=r27c, Allowed_AutoSdk=r27c, Current_AutoSdk=
@@ -113,16 +118,15 @@ type in "1" and hit enter key
 level: 2
 ---
 
-7. wait for the tools to process
+5. wait for the tools to process. The commandline will install android studio for you. It will pop up an Android Studio for you and open it. 
 
-8. the commandline will install android studio for you. It will either pop up an Android Studio for you and open it. If not, you should can copy and edit the following code, paste it in your command prompt and hit enter
+*optional: If not, you should can copy and edit the following code, paste it in your command prompt and hit enter
 ```shell
 cd C:\Users\[yourUserName]\AppData\Local\Android\android-studio\bin
 ```
 change the `[yourUserName]` part into your UNCG user name.
 This is the location where your android studio is installed. This folder contains the exe for the file. 
-
-9. copy the following code, and then hit enter
+Copy the following code, and then hit enter
 ```shell
 .\studio64.exe
 ```
@@ -131,7 +135,7 @@ This is the location where your android studio is installed. This folder contain
 level: 2
 ---
 
-10. It will open up this software, choose SDK manager
+6. It will open up this software, choose SDK manager
 
 ![open Android Studio for SDK manager](./images/setup/android-studio.png){size=80%}
 
@@ -139,19 +143,34 @@ level: 2
 level: 2
 ---
 
-11. Check Android SDK Command-Line Tools (latest) and then click Apply. This downloads the Command-Line tools, which are needed to automatically configure Android Studio for UE.
+7. Check Android SDK Command-Line Tools (latest) and then click Apply. This downloads the Command-Line tools, which are needed to automatically configure Android Studio for UE. (needs override)
 ![commandline editor](https://dev.epicgames.com/community/api/documentation/image/3f8871c2-d89b-44b1-9bb5-73bcff8bc4d4?resizing_type=fit&width=1400&height=1014)
 
 ---
 level: 2
 ---
 
-12. install JDK
+8. install JDK
 [install for Windows x64 microsoft-jdk-21.0.9-windows-x64.msi](https://aka.ms/download-jdk/microsoft-jdk-21.0.9-windows-x64.msi)
-install them for yourself
+install them **for yourself**
+
+search command prompt in your search bar, right click and "run as administrator" (needs admin override)
+
+copy the directory below and change the yourUserName part as your UNCG username, check if the folder is correctly there
+
+```shell
+C:\Users\[yourUserName]\AppData\Local\Programs\Microsoft\jdk-21.0.9.10-hotspot
+```
+
+if it's there, copy the address, and replace the following `[jdk address]` part with the address above, hit enter (needs admin override)
+
+```shell
+setx -m JAVA_HOME “[jdk address]”
+```
+---
 
 
-13. In Unreal Engine 5.6.1
+9. In Unreal Engine 5.6.1
 Under Simulation->VR Project, name your project as yourName_VRProject
 ![create new VR project](./images/setup/newProject.png){size=90%}
 
@@ -160,30 +179,28 @@ layout: two-cols
 level: 2
 ---
 
-14. Go to menu bar->Edit->Project Setting
+10. Go to menu bar->Edit->Project Setting
 ![project setting](./images/setup/projectSet.png)
 
 ::right::
 
-15. Go to Platforms -> AndroidSDK
+11. Go to Platforms -> AndroidSDK
 ![](./images/setup/AndroidSDK.png){size=70%}
 
 ---
 layout: two-cols
 ---
 
-16. Under these forms, change each of them correspondingly
+12. Under these forms, change each of them correspondingly
 ![Platform - Android SDK setting](./images\setup\PlatformSDK.png)
-change the [yourUserName]
+change the `[yourUserName]` to your uncg username
 
-a. copy and paste
+**a.** copy and paste
 ```shell
 C:/Users/[yourUserName]/AppData/Local/Android/Sdk
 ```
-b. in your Explorer, on the address bar, type in 
-```shell
-C:\Users\l_xia\AppData\Local\Android\Sdk\ndk
-```
+
+**b.**  in your Explorer, on the address bar, paste the link in, and find a folder that's called "ndk"
 
 ::right::
 
@@ -195,7 +212,7 @@ find the folder in there, right click -> copy as path
 
 paste in b section
 
-c. copy and paste
+**c.** copy and paste
 ```shell
 C:/Users/[yourUserName]/AppData/Local/Android/jdk-21.0.9
 ```
@@ -204,36 +221,46 @@ layout: two-cols
 level: 2
 ---
 
-17. Under these forms, change each of them correspondingly
+(continue) 
 ![Platform - Android SDK setting](./images\setup\PlatformSDK.png)
-change the [yourUserName]
+change the `[yourUserName]` to your uncg username
 
-d. copy and paste
+**d.** copy and paste
 ```shell
 matchndk
 ```
-e. copy and paste
+
+**e.** copy and paste
 ```shell
 android-27
 ```
 ::right::
 
-18. Once set, go back to the main interface, on the top bar beside the play button, in Platforms → Device Manager, You should be able to see Quest 3 in there
+14. Once set, go back to the main interface, on the top bar beside the play button, in Platforms → Device Manager, You should be able to see Quest 3 in the Android section. Update Device.
 
-![Device Manager](.\images\setup\DeviceManager.png)
+![update Device](.\images\setup\installQ3.png){size=80%}
 
----
-level: 2
----
-
-19. Connect Quest 3 through Link Cable, open **Meta Horizon Link** to set up the headset, in Setting → General, on the  bottom, select OpenXR Runtime to true ✔️
-![run Time](./images/setup/runTime.png)
 
 ---
 level: 2
 ---
 
-20. In Quest 3, Select the time bar with the icon in “Quick Setting”, connect the headset with the link cable, now in Unreal Engine, if clicking the three dots beside the play button, you would be able to see VR Preview turn on  
+15. Connect Quest 3 through Link Cable, open **Meta Horizon Link** to set up the headset, in Setting → General, on the  bottom, select OpenXR Runtime to true ✔️
+![run Time](./images/setup/runTime.png){size=40%}
+
+---
+level: 2
+layout: two-cols
+---
+
+16. In Quest 3, Select the time bar with the icon in “Quick Setting”, connect the headset with the link cable, Go into Link
+![Quick Setting](./images/setup/quickSet.jpg)
+::right::
+![Quest Link](./images/setup/link.jpg)
+
+---
+
+now in Unreal Engine, if clicking the three dots beside the play button, you would be able to see VR Preview turn on  
 
 ![VR preview](./images/setup/VRPreview.png)
 
@@ -278,7 +305,7 @@ try the following:
 2. hold and drag **mouse middle wheel** in the window, try drag up,down,left,right
 3. **scroll mouse middle wheel** in the window
 4. hold and drag **mouse right key** in the window, try drag up,down,left,right
-5. try clicking the **up, down, left, right** key on your keyboard
+5. press and hold mouse middle wheel, click your 'A' 'D' 'W' 'S' key on your keyboard
 6. use your left key to click and select an object in the scene (it will be surrounded by yellow outline) click **"F"**
 
 Camera Speed
