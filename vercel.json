@@ -1,23 +1,15 @@
 {
   "rewrites": [
     {
-      "source": "/github/:path*",
-      "destination": "/github/index.html"
+      "source": "/intro/:path*",
+      "destination": "/intro/index.html"
     },
     {
-      "source": "/github",
-      "destination": "/github/index.html"
+      "source": "/intro",
+      "destination": "/intro/index.html"
     },
     {
-      "source": "/html/:path*",
-      "destination": "/html/index.html"
-    },
-    {
-      "source": "/html",
-      "destination": "/html/index.html"
-    },
-    {
-      "source": "/((?!github|html).*)",
+      "source": "/((?!intro).*)",
       "destination": "/index.html"
     }
   ],
