@@ -320,9 +320,31 @@ layout: two-cols
 
 # Add things to your scene
 
-A quick way to add things to your scene is using the Unreal Fab plugin
+<div class="grid grid-cols-2 gap-4">
+
+<div>
+  <h3>Left Side</h3>
+  <ul>
+    <li>Point A</li>
+    <li>Point B</li>
+  </ul>
+</div>
+
+<div>
+  A quick way to add things to your scene is using the Unreal Fab plugin
 
 ![fab](./images/unrealCrashCourse/Fab.png)
+</div>
+
+</div>
+
+<div class="mt-10 p-4 bg-gray-500/10 rounded">
+  ![3D](./images/unrealCrashCourse/3D.png)
+</div>
 
 
-![3D](./images/unrealCrashCourse/3D.png)
+
+
+::bottom::
+
+
