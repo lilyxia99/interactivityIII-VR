@@ -317,3 +317,11 @@ set your camera speed
 ---
 
 # Add things to your scene
+
+A quick way to add things to your scene is using the Unreal Fab plugin
+
+![fab](./images/unrealCrashCourse/Fab.png)
+
+---
+
+![3D](./images/unrealCrashCourse/3D.png)
