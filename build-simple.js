@@ -8,18 +8,21 @@ console.log('🚀 Building Slidev presentations with history mode...\n')
 function extractTitleFromSlideFile(filename) {
   try {
     const content = fs.readFileSync(filename, 'utf8')
-    const titleMatch = content.match(/^#\s+(.+)$/m)
-    if (titleMatch) {
-      return titleMatch[1].trim()
-    }
     
-    // Try to find title in frontmatter
+    // First try to find title in frontmatter
     const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/)
     if (frontmatterMatch) {
-      const titleInFrontmatter = frontmatterMatch[1].match(/title:\s*['"]?([^'"]+)['"]?/m)
+      const titleInFrontmatter = frontmatterMatch[1].match(/title:\s*(.+)$/m)
       if (titleInFrontmatter) {
         return titleInFrontmatter[1].trim()
       }
+    }
+    
+    // Then try to find the first actual heading after frontmatter
+    const afterFrontmatter = content.replace(/^---\n[\s\S]*?\n---\n/, '')
+    const titleMatch = afterFrontmatter.match(/^#\s+(.+)$/m)
+    if (titleMatch) {
+      return titleMatch[1].trim()
     }
     
     return null
