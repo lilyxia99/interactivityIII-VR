@@ -45,30 +45,54 @@ const files = fs.readdirSync('.')
 files.forEach(file => {
   const isSlideFile = 
     file === 'slides.md' || 
-    /^\d{2}-slides\.md$/.test(file) ||
-    file.startsWith('slides-') && file.endsWith('.md') ||
-    /^\d{2}-slides-.*\.md$/.test(file)
+    /^\d{2}-slides-.*\.md$/.test(file) ||
+    /^\d{2}--slides--.*\.md$/.test(file) ||
+    file.startsWith('slides-') && file.endsWith('.md')
   
   if (isSlideFile) {
-    const match = file.match(/^(\d{2}-)?(slides)(?:-(.*))?\.md$/)
-    if (match) {
-      const [, prefix, , topic] = match
-      const order = prefix ? parseInt(prefix) : 999
-      const name = topic || 'main'
-      
-      const extractedTitle = extractTitleFromSlideFile(file)
-      const title = extractedTitle || formatTopicToTitle(topic)
-      
-      slideFiles.push({
-        file,
-        name,
-        title,
-        order,
-        prefix: prefix || ''
-      })
-      
-      console.log(`📝 Found: ${file} -> Title: "${title}"`)
+    let order, name, topic
+    
+    // Handle different naming patterns
+    if (file === 'slides.md') {
+      order = 999
+      name = 'main'
+      topic = null
+    } else if (file.match(/^(\d{2})-slides-(.*)\.md$/)) {
+      // Pattern: 00-slides-intro.md
+      const match = file.match(/^(\d{2})-slides-(.*)\.md$/)
+      order = parseInt(match[1])
+      topic = match[2]
+      name = topic
+    } else if (file.match(/^(\d{2})--slides--(.*)\.md$/)) {
+      // Pattern: 01--slides--SetUp.md
+      const match = file.match(/^(\d{2})--slides--(.*)\.md$/)
+      order = parseInt(match[1])
+      topic = match[2]
+      name = topic
+    } else if (file.startsWith('slides-') && file.endsWith('.md')) {
+      // Pattern: slides-topic.md
+      order = 999
+      topic = file.replace('slides-', '').replace('.md', '')
+      name = topic
+    } else {
+      // Fallback
+      order = 999
+      name = file.replace('.md', '')
+      topic = name
     }
+    
+    const extractedTitle = extractTitleFromSlideFile(file)
+    const title = extractedTitle || formatTopicToTitle(topic)
+    
+    slideFiles.push({
+      file,
+      name,
+      title,
+      order,
+      prefix: order < 999 ? `${order.toString().padStart(2, '0')}-` : ''
+    })
+    
+    console.log(`📝 Found: ${file} -> Name: "${name}", Title: "${title}", Order: ${order}`)
   }
 })
 
