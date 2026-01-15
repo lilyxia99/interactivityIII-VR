@@ -338,9 +338,9 @@ layout: two-cols
 
 </div>
 
-<div class="mt-10 p-4 bg-gray-500/10 rounded">
+
   ![3D](./images/unrealCrashCourse/3D.png)
-</div>
+
 
 
 

@@ -1,18 +1,19 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/intro/:path*",
+      "destination": "/intro/index.html"
+    },
+    {
+      "source": "/intro",
+      "destination": "/intro/index.html"
+    },
+    {
+      "source": "/((?!intro).*)",
+      "destination": "/index.html"
+    }
   ],
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "headers": [
-    {
-      "source": "/:path*",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    }
-  ]
+  "trailingSlash": false
 }
