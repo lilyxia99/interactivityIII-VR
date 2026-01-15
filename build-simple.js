@@ -43,11 +43,15 @@ const slideFiles = []
 const files = fs.readdirSync('.')
 
 files.forEach(file => {
+  console.log(`🔍 Checking file: ${file}`)
+  
   const isSlideFile = 
     file === 'slides.md' || 
     /^\d{2}-slides-.*\.md$/.test(file) ||
     /^\d{2}--slides--.*\.md$/.test(file) ||
     file.startsWith('slides-') && file.endsWith('.md')
+  
+  console.log(`   Is slide file: ${isSlideFile}`)
   
   if (isSlideFile) {
     let order, name, topic
@@ -63,22 +67,26 @@ files.forEach(file => {
       order = parseInt(match[1])
       topic = match[2]
       name = topic
+      console.log(`   Matched single-dash pattern: ${match[0]}`)
     } else if (file.match(/^(\d{2})--slides--(.*)\.md$/)) {
       // Pattern: 01--slides--SetUp.md
       const match = file.match(/^(\d{2})--slides--(.*)\.md$/)
       order = parseInt(match[1])
       topic = match[2]
       name = topic
+      console.log(`   Matched double-dash pattern: ${match[0]}`)
     } else if (file.startsWith('slides-') && file.endsWith('.md')) {
       // Pattern: slides-topic.md
       order = 999
       topic = file.replace('slides-', '').replace('.md', '')
       name = topic
+      console.log(`   Matched slides- pattern`)
     } else {
       // Fallback
       order = 999
       name = file.replace('.md', '')
       topic = name
+      console.log(`   Using fallback pattern`)
     }
     
     const extractedTitle = extractTitleFromSlideFile(file)
