@@ -267,6 +267,21 @@ console.log('✅ Navigation page created')
 
 // 创建路由测试页面
 console.log('\n🔧 Creating route test page...')
+const testSections = builtPresentations.map(pres => {
+  const name = pres.name
+  const title = pres.title
+  return `
+    <div class="test">
+      <h3>${title}</h3>
+      <button onclick="testRoute('/${name}/')">Test /${name}/</button>
+      <button onclick="testRoute('/${name}/1')">Test /${name}/1</button>
+      <button onclick="testRoute('/${name}/2')">Test /${name}/2</button>
+      <button onclick="testRoute('/${name}/10')">Test /${name}/10</button>
+      <div id="result-${name}"></div>
+    </div>
+  `
+}).join('')
+
 const testPage = `<!DOCTYPE html>
 <html>
 <head>
@@ -283,19 +298,14 @@ const testPage = `<!DOCTYPE html>
   <h1>Slidev Route Testing</h1>
   
   <div id="tests">
-    <div class="test">
-      <h3>Intro Presentation</h3>
-      <button onclick="testRoute('/intro/')">Test /intro/</button>
-      <button onclick="testRoute('/intro/1')">Test /intro/1</button>
-      <button onclick="testRoute('/intro/2')">Test /intro/2</button>
-      <button onclick="testRoute('/intro/18')">Test /intro/18</button>
-      <div id="result-intro"></div>
-    </div>
+    ${testSections}
   </div>
   
   <script>
     async function testRoute(url) {
-      const resultDiv = document.getElementById('result-' + url.split('/')[1]);
+      const pathParts = url.split('/').filter(p => p);
+      const presentationName = pathParts[0] || 'main';
+      const resultDiv = document.getElementById('result-' + presentationName);
       
       try {
         const response = await fetch(url);
@@ -320,7 +330,7 @@ const testPage = `<!DOCTYPE html>
     
     // 自动测试关键路由
     setTimeout(() => {
-      testRoute('/intro/2');
+      ${builtPresentations.map(pres => `testRoute('/${pres.name}/1');`).join('\n      ')}
     }, 1000);
   </script>
 </body>
@@ -329,47 +339,47 @@ const testPage = `<!DOCTYPE html>
 fs.writeFileSync(path.join(distDir, 'test-routes.html'), testPage)
 console.log('✅ Test page created')
 
-// Generate vercel.json with dynamic rewrites
-console.log('\n🔧 Generating vercel.json...')
+// 生成 vercel.json 配置
+console.log('\n🔧 Generating vercel.json configuration...')
 const rewrites = []
 
-// Add rewrites for each built presentation
+// 为每个演示文稿添加重写规则
 builtPresentations.forEach(pres => {
   if (pres.name !== 'main') {
     rewrites.push({
-      "source": `/${pres.name}/:path*`,
-      "destination": `/${pres.name}/index.html`
+      source: `/${pres.name}/:path*`,
+      destination: `/${pres.name}/index.html`
     })
     rewrites.push({
-      "source": `/${pres.name}`,
-      "destination": `/${pres.name}/index.html`
+      source: `/${pres.name}`,
+      destination: `/${pres.name}/index.html`
     })
   }
 })
 
-// Add catch-all for main/navigation page
-const presentationNames = builtPresentations
+// 添加catch-all规则（排除所有已知的演示文稿路径）
+const excludePattern = builtPresentations
   .filter(pres => pres.name !== 'main')
   .map(pres => pres.name)
   .join('|')
 
-if (presentationNames) {
+if (excludePattern) {
   rewrites.push({
-    "source": `/((?!${presentationNames}).*)`,
-    "destination": "/index.html"
+    source: `/((?!${excludePattern}).*)`,
+    destination: "/index.html"
   })
 } else {
   rewrites.push({
-    "source": "/(.*)",
-    "destination": "/index.html"
+    source: "/(.*)",
+    destination: "/index.html"
   })
 }
 
 const vercelConfig = {
-  "rewrites": rewrites,
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "trailingSlash": false
+  rewrites,
+  buildCommand: "npm run build",
+  outputDirectory: "dist",
+  trailingSlash: false
 }
 
 fs.writeFileSync('vercel.json', JSON.stringify(vercelConfig, null, 2))
@@ -380,14 +390,22 @@ console.log('\n🔧 Configuration summary:')
 console.log('   • Using --router-mode history for direct page access')
 console.log('   • All routes rewriten to index.html for SPA support')
 console.log('   • Test page available at /test-routes.html')
+console.log('   • vercel.json auto-generated with dynamic rewrites')
 
 console.log('\n🌐 Expected behavior:')
 console.log('   /              -> Navigation page')
-console.log('   /intro/        -> Intro presentation (page 1)')
-console.log('   /intro/1       -> Intro presentation (page 1)')
-console.log('   /intro/2       -> Intro presentation (page 2) ✅')
-console.log('   /intro/18      -> Intro presentation (page 18) ✅')
+builtPresentations.forEach(pres => {
+  if (pres.name !== 'main') {
+    console.log(`   /${pres.name}/        -> ${pres.title} (page 1)`)
+    console.log(`   /${pres.name}/1       -> ${pres.title} (page 1) ✅`)
+    console.log(`   /${pres.name}/2       -> ${pres.title} (page 2) ✅`)
+  }
+})
 
 console.log('\n🚀 Test after deployment:')
-console.log('   https://interactivity-iii-vr.vercel.app/intro/2')
-console.log('   Should show slide 2 directly, not redirect to slide 1')
+builtPresentations.forEach(pres => {
+  if (pres.name !== 'main') {
+    console.log(`   https://interactivity-ii-slides-slidev.vercel.app/${pres.name}/1`)
+  }
+})
+console.log('   Should show specific slides directly, not redirect to slide 1')
