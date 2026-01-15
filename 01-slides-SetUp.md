@@ -332,5 +332,38 @@ layout: two-cols
 
 ---
 
+# Let's Scan somthing
 
+on your phone, download [Scaniverse](https://scaniverse.com/) or [Luma 3D capture](https://apps.apple.com/us/app/luma-3d-capture/id1615849914)
 
+follow the instruction on the app, try scanning something
+
+---
+layout: two-cols
+---
+
+send the file to your email or other ways to put it on your computer
+
+![Share](./images/unrealCrashCourse/Share.png){.w-40}
+
+::right::
+
+![export model](./images/unrealCrashCourse/export%20Model.png){.w-50}
+
+![export to FBX](./images/unrealCrashCourse/FBX.png){.w-50}
+
+---
+
+In your Content Drawer, under "Content", create a new folder called "Model", under it create a new folder called "Scanned", and then another folder named as whatever thing you scanned
+
+drag the fbx in, and then select the Static Mesh object, drag it in the scene. Now you can scale it and move it around. 
+
+![controller](./images/unrealCrashCourse/controller.png)
+
+---
+
+Homework: [Scan Object](https://uncg.instructure.com/courses/148823/assignments/1892444)
+
+Use your phone to scan at least 5 (but not limited to--as many as) you want object of your choice, download 2 free assets from either sketchfab. or Fab, and 1 environment of your choice, insert them in your project to build a virtual environment. It could be your home, a place in Greensboro that you like, or anywhere that you like. 
+
+Submission: Upload 3 screen shot of the virtual scene that you build. 
