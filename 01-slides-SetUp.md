@@ -336,7 +336,7 @@ layout: two-cols
 
 on your phone, download [Scaniverse](https://scaniverse.com/) or [Luma 3D capture](https://apps.apple.com/us/app/luma-3d-capture/id1615849914)
 
-follow the instruction on the app, try scanning something
+follow the instruction on the app, try scanning something （under mesh mode）
 
 ---
 layout: two-cols
