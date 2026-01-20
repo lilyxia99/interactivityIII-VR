@@ -190,6 +190,25 @@ There will be left overs, you might need to delete multiple times
 
 ---
 
-![](./images/blender-scan/grab.png)
-
+In the Details, Add a Grab conponent under the mesh component
 ![scanned item](./images/blender-scan/addGrabComponent.png)
+
+![grab component in place](./images/blender-scan/grabInPlace.png)
+
+With this you should be able to grab and interact with the object of your choice. 
+
+---
+layout: two-cols
+---
+
+# Change Lighting in the scene
+
+1. find directional light in the scene
+
+![directional Light](./images/blender-scan/directionalLight.png)
+
+::right::
+
+2. hold Control + L, move your mouse around
+
+<video width="320" height="240" controls><source src="./images/blender-scan/controlL.mp4" type="video/mp4"></video>
