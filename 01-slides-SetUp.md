@@ -214,7 +214,7 @@ paste in b section
 
 **c.** copy and paste
 ```shell
-C:/Users/[yourUserName]/AppData/Local/Android/jdk-21.0.9
+C:\Users\[yourUserName]\AppData\Local\Programs\Microsoft\jdk-21.0.9.10-hotspot
 ```
 ---
 layout: two-cols
@@ -247,6 +247,11 @@ level: 2
 
 15. Connect Quest 3 through Link Cable, open **Meta Horizon Link** to set up the headset, in Setting → General, on the  bottom, select OpenXR Runtime to true ✔️
 ![run Time](./images/setup/runTime.png){size=40%}
+
+
+---
+
+If the step above doesn't work, install SteamVR. Connect meta quest 3 through Link, and then start SteamVr. in the setting of SteamVR,(the three lines in the little window) set steamVR as default runtime. 
 
 ---
 level: 2
