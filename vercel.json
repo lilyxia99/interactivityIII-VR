@@ -19,6 +19,14 @@
     {
       "source": "/((?!intro|SetUp).*)",
       "destination": "/index.html"
+    },
+    {
+      "source": "/Scan",
+      "destination": "/SetUp/index.html"
+    },
+    {
+      "source": "/((?!intro|Scan).*)",
+      "destination": "/index.html"
     }
   ],
   "buildCommand": "npm run build",

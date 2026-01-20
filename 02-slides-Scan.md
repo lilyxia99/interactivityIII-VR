@@ -153,7 +153,7 @@ There will be left overs, you might need to delete multiple times
 
 15. select the low poly object, hit **tab** to go into edit mode. Hit U and then select UV Unwrap, Smart Projection. Just follow the default setting.
 
-![UV unwrap](//images/blender-scan/uv.png)
+![UV unwrap](./images/blender-scan/uv.png)
 
 ---
 
@@ -172,3 +172,24 @@ There will be left overs, you might need to delete multiple times
 18. go to File -> export -> fbx, and then follow the following export setting, choose the location you want to save to. After saving, you can import it into Unreal Engine. 
 
 ![export Setting](./images/blender-scan/exportSetting.png)
+
+---
+
+# Set up Grab Component
+
+1. add an actor from create button
+
+![create actor](./images/blender-scan/actor.png)
+
+---
+
+2. drag mesh under the actor 
+
+![drag mesh under the actor](./images/blender-scan/actorSelected.png)
+
+
+---
+
+![](./images/blender-scan/grab.png)
+
+![scanned item](./images/blender-scan/addGrabComponent.png)
