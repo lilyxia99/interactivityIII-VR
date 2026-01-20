@@ -212,3 +212,13 @@ layout: two-cols
 2. hold Control + L, move your mouse around
 
 <video width="320" height="240" controls><source src="./images/blender-scan/controlL.mp4" type="video/mp4"></video>
+
+---
+
+press find the skySpherePC2, under details, search "Refresh Material", hit the checker. It's not going to be checked, but the skylight will change. It's kind of a button faked as a checker.
+
+<div style="width:300px">
+
+![change sky sphere update](./images/blender-scan/skysphere.png)
+
+</div>
