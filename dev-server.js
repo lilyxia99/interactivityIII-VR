@@ -131,7 +131,7 @@ function extractNameFromFile(filename) {
   if (name.includes('--slides--')) {
     name = name.split('--slides--')[1] || name
   }
-  // 处理 00-slides-intro 格式
+  // 处理 00-slides-intro, 02-slides-Scan 格式
   else if (name.match(/^\d{2}-slides-/)) {
     name = name.replace(/^\d{2}-slides-/, '')
   }
@@ -141,7 +141,8 @@ function extractNameFromFile(filename) {
   }
   // 移除数字前缀
   else {
-    name = name.replace(/^\d{2}-/, '')
+    name = name.replace(/^\d{2}--?/, '')
+    name = name.replace(/^slides-/, '')
   }
   
   // 将连字符和下划线转换为空格，并首字母大写

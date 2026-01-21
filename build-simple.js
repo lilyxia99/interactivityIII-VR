@@ -65,19 +65,19 @@ files.forEach(file => {
       name = 'main'
       topic = null
     } else if (file.match(/^(\d{2})-slides-(.*)\.md$/)) {
-      // Pattern: 00-slides-intro.md
+      // Pattern: 00-slides-intro.md, 02-slides-Scan.md
       const match = file.match(/^(\d{2})-slides-(.*)\.md$/)
       order = parseInt(match[1])
       topic = match[2]
-      name = topic
-      console.log(`   Matched single-dash pattern: ${match[0]}`)
+      name = topic.toLowerCase() // Ensure consistent naming
+      console.log(`   Matched single-dash pattern: ${match[0]} -> name: ${name}`)
     } else if (file.match(/^(\d{2})--slides-(.*)\.md$/)) {
       // Pattern: 01--slides-SetUp.md
       const match = file.match(/^(\d{2})--slides-(.*)\.md$/)
       order = parseInt(match[1])
       topic = match[2]
-      name = topic
-      console.log(`   Matched double-dash pattern: ${match[0]}`)
+      name = topic.toLowerCase() // Ensure consistent naming
+      console.log(`   Matched double-dash pattern: ${match[0]} -> name: ${name}`)
     } else if (file.startsWith('slides-') && file.endsWith('.md')) {
       // Pattern: slides-topic.md
       order = 999
@@ -438,9 +438,14 @@ builtPresentations.forEach(pres => {
 })
 
 console.log('\n🚀 Test after deployment:')
+console.log('   Navigation: https://your-domain.vercel.app/')
 builtPresentations.forEach(pres => {
   if (pres.name !== 'main') {
-    console.log(`   https://interactivity-ii-slides-slidev.vercel.app/${pres.name}/1`)
+    console.log(`   ${pres.title}: https://your-domain.vercel.app/${pres.name}/`)
+    console.log(`   Direct slide: https://your-domain.vercel.app/${pres.name}/1`)
   }
 })
-console.log('   Should show specific slides directly, not redirect to slide 1')
+console.log('\n🔍 Debug info:')
+builtPresentations.forEach(pres => {
+  console.log(`   File: ${pres.file} -> Name: ${pres.name} -> Title: ${pres.title}`)
+})
