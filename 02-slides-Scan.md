@@ -190,6 +190,35 @@ There will be left overs, you might need to delete multiple times
 
 ---
 
-![](./images/blender-scan/grab.png)
-
+In the Details, Add a Grab conponent under the mesh component
 ![scanned item](./images/blender-scan/addGrabComponent.png)
+
+![grab component in place](./images/blender-scan/grabInPlace.png)
+
+With this you should be able to grab and interact with the object of your choice. 
+
+---
+layout: two-cols
+---
+
+# Change Lighting in the scene
+
+1. find directional light in the scene
+
+![directional Light](./images/blender-scan/directionalLight.png)
+
+::right::
+
+2. hold Control + L, move your mouse around
+
+<video width="320" height="240" controls><source src="./images/blender-scan/controlL.mp4" type="video/mp4"></video>
+
+---
+
+press find the skySpherePC2, under details, search "Refresh Material", hit the checker. It's not going to be checked, but the skylight will change. It's kind of a button faked as a checker.
+
+<div style="width:300px">
+
+![change sky sphere update](./images/blender-scan/skysphere.png)
+
+</div>
