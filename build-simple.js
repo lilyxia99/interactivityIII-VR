@@ -85,11 +85,16 @@ files.forEach(file => {
       name = topic
       console.log(`   Matched slides- pattern`)
     } else {
-      // Fallback
+      // Enhanced fallback for any slide file
       order = 999
-      name = file.replace('.md', '')
-      topic = name
-      console.log(`   Using fallback pattern`)
+      let baseName = file.replace('.md', '')
+      // Remove number prefixes like "00-", "01--", etc.
+      baseName = baseName.replace(/^\d{2}--?/, '')
+      // Remove "slides-" prefix if present
+      baseName = baseName.replace(/^slides-/, '')
+      name = baseName.toLowerCase()
+      topic = baseName
+      console.log(`   Using enhanced fallback pattern -> name: ${name}`)
     }
     
     const extractedTitle = extractTitleFromSlideFile(file)
