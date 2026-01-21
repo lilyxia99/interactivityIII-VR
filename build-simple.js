@@ -386,8 +386,9 @@ const rewrites = []
 // 为每个演示文稿添加重写规则
 builtPresentations.forEach(pres => {
   if (pres.name !== 'main') {
+    // Handle specific slide numbers and paths
     rewrites.push({
-      source: `/${pres.name}/:path*`,
+      source: `/${pres.name}/:slide*`,
       destination: `/${pres.name}/index.html`
     })
     rewrites.push({
@@ -397,23 +398,28 @@ builtPresentations.forEach(pres => {
   }
 })
 
-// 添加catch-all规则（排除所有已知的演示文稿路径）
-const excludePattern = builtPresentations
-  .filter(pres => pres.name !== 'main')
-  .map(pres => pres.name)
-  .join('|')
+// Add assets and static files handling
+rewrites.push({
+  source: "/assets/:path*",
+  destination: "/assets/:path*"
+})
 
-if (excludePattern) {
-  rewrites.push({
-    source: `/((?!${excludePattern}).*)`,
-    destination: "/index.html"
-  })
-} else {
-  rewrites.push({
-    source: "/(.*)",
-    destination: "/index.html"
-  })
-}
+rewrites.push({
+  source: "/_nuxt/:path*", 
+  destination: "/_nuxt/:path*"
+})
+
+// Test routes page
+rewrites.push({
+  source: "/test-routes.html",
+  destination: "/test-routes.html"
+})
+
+// Main navigation page - this should be LAST
+rewrites.push({
+  source: "/",
+  destination: "/index.html"
+})
 
 const vercelConfig = {
   rewrites,
