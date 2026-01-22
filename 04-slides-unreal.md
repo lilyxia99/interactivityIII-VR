@@ -93,6 +93,10 @@ layout: two-cols
 ## Mesh
 The 3D Geometry shape. 
 
+built from points (vertices) connected by lines (edges) to form flat surfaces (faces or polygons) 
+
+![what is mesh](./images/unreal/mesh.png)
+
 ::right::
 
 ## Material
@@ -101,6 +105,9 @@ The "Paint" on the Mesh.
 * Determines the color, shininess, roughness, and transparency.
 * Uses a graph-based shader editor.
 * **PBR (Physically Based Rendering):** Unreal uses real-world logic for light interaction.
+
+![texture](./images/unreal/texture.png)
+
 ---
 
 # Sunlight Position
