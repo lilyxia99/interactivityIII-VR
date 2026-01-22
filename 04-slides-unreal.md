@@ -101,27 +101,6 @@ The "Paint" on the Mesh.
 * Determines the color, shininess, roughness, and transparency.
 * Uses a graph-based shader editor.
 * **PBR (Physically Based Rendering):** Unreal uses real-world logic for light interaction.
-
----
-layout: two-cols
----
-
-## Level (Map)
-The World itself.
-
-* A collection of Actors.
-* You load and unload Levels to change environments.
-* Saved as `.umap` files.
-
-::right::
-
-## Viewport
-Your Window into the World.
-
-* **RMB + WASD:** Fly around like a spectator.
-* **G:** Toggle Game View (hides icons).
-* **F:** Focus on selected object.
-
 ---
 
 # Sunlight Position
