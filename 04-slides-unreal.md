@@ -127,6 +127,12 @@ Watch the video, create a landscape for your scene
 
 ---
 
+# PBR material explained
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6lioyniEl_E?si=ZDSwxyGHgV6I9TlG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
 # Unreal material
 
 Watch the tutorial, finish the first 3 levels.
