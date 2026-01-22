@@ -67,6 +67,8 @@ layout: two-cols
 
 # Remesh and bake textuer to low poly items
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/C2kLEZxfnLs?si=mW9vqAGfCFQPquqm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ---
 
 Reference youtube video, step by step text tutorial in the following page
