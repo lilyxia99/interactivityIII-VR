@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/intro/:path*",
+      "source": "/intro/:slide*",
       "destination": "/intro/index.html"
     },
     {
@@ -9,23 +9,51 @@
       "destination": "/intro/index.html"
     },
     {
-      "source": "/SetUp/:path*",
-      "destination": "/SetUp/index.html"
+      "source": "/setup/:slide*",
+      "destination": "/setup/index.html"
     },
     {
-      "source": "/SetUp",
-      "destination": "/SetUp/index.html"
+      "source": "/setup",
+      "destination": "/setup/index.html"
     },
     {
-      "source": "/((?!intro|SetUp).*)",
-      "destination": "/index.html"
+      "source": "/scan/:slide*",
+      "destination": "/scan/index.html"
     },
     {
-      "source": "/Scan",
-      "destination": "/SetUp/index.html"
+      "source": "/scan",
+      "destination": "/scan/index.html"
     },
     {
-      "source": "/((?!intro|Scan).*)",
+      "source": "/blender/:slide*",
+      "destination": "/blender/index.html"
+    },
+    {
+      "source": "/blender",
+      "destination": "/blender/index.html"
+    },
+    {
+      "source": "/unreal/:slide*",
+      "destination": "/unreal/index.html"
+    },
+    {
+      "source": "/unreal",
+      "destination": "/unreal/index.html"
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "/assets/:path*"
+    },
+    {
+      "source": "/_nuxt/:path*",
+      "destination": "/_nuxt/:path*"
+    },
+    {
+      "source": "/test-routes.html",
+      "destination": "/test-routes.html"
+    },
+    {
+      "source": "/",
       "destination": "/index.html"
     }
   ],

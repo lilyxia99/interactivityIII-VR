@@ -1,7 +1,7 @@
 ---
 # You can also start simply with 'default'
 theme: ./leilei-custom1
-title: Blender & Scan
+title: Clean Up Scan
 info: |
   ## Use Blender to clean up your 3D scan
 

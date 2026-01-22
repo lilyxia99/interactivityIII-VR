@@ -1,7 +1,7 @@
 ---
 # You can also start simply with 'default'
 theme: ./leilei-custom1
-title: Blender & Scan
+title: Blender Crash Course
 info: |
   ## Use Blender to clean up your 3D scan
 
@@ -26,3 +26,13 @@ mdc: true
 
 ---
 
+## Interface
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_-K_d29eE1A?si=MnhxmtC0DG49mf-d" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+---
+
+## Remesh
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/C2kLEZxfnLs?si=mW9vqAGfCFQPquqm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
