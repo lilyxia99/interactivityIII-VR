@@ -113,3 +113,16 @@ The "Paint" on the Mesh.
 # Sunlight Position
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NY1Ag2As9gs?si=BI2XVdr2hcvPYQJ9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Watch the video, change the sunlight position in your scene
+
+---
+
+# how to create landscape
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FSsOS6M2u1s?si=sZRKbEOrP30_bzYG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Watch the video, create a landscape for your scene
+
+
+
