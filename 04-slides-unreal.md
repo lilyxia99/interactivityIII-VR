@@ -140,10 +140,12 @@ Watch the video, change the sunlight position in your scene
 
 # Unreal material
 
-Watch the tutorial, finish the first 3 levels.
+Watch the tutorial, download a material from [freePBR](https://freepbr.com/), finish the first 3 levels. 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/iZgbzwBQTPY?si=4gCB8Jrs-_D1zsH3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+---
+layout: two-cols
 ---
 
 # how to create landscape
@@ -151,3 +153,9 @@ Watch the tutorial, finish the first 3 levels.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FSsOS6M2u1s?si=sZRKbEOrP30_bzYG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Watch the video, create a landscape for your scene
+
+::right::
+
+**Note**: in the last step, After you save your material and go back to landscape mode, you would need to manually click create layers from materials in order for them to show up
+
+![create layers](./images/unreal/createLayers.png)
