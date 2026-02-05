@@ -110,11 +110,6 @@ The "Paint" on the Mesh.
 
 ---
 
-## Grab Component
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ugBzx41-MNQ?si=4skJferpoNt0v7Wd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
----
 
 ## Migrate Assets
 
